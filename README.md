@@ -53,3 +53,9 @@ As a owner,
 So that my listing is filled, 
 I'd like to not be blocked until the booking is confirmed
 ```
+
+```
+To create database
+CREATE DATABASE makersbnb;
+CREATE DATABASE makersbnb_test;
+```
