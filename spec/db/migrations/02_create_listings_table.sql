@@ -1,0 +1,1 @@
+CREATE TABLE listing (id SERIAL PRIMARY KEY, name  VARCHAR(60),price NUMERIC, description VARCHAR(200));
