@@ -10,6 +10,7 @@ gem 'rack'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'bcrypt'
+gem "sinatra-flash"
 
 group :development do
   gem 'shotgun'
