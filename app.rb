@@ -21,6 +21,10 @@ class MakersBnB < Sinatra::Base
     User.create(username: params[:username], email: params[:email], password: params[:password])
     redirect 'user/login'
   end
+
+  post '/login' do
+   redirect '/listing'
+  end
   
   get '/listing' do
     erb :"/listing/index"
