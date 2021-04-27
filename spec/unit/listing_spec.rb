@@ -24,6 +24,17 @@ describe Listing do
         expect(list.first.price).to eq('100')
       end
     end
+
+    context('#find') do 
+      it 'Returns a selected item ' do 
+        listing = Listing.create(name: 'name', description: 'description', price: 100)
+        listing_search = Listing.find(id: listing.id)
+        expect(listing_search).to be_a Listing
+        expect(listing_search.name).to eq('name')
+        expect(listing_search.description).to eq('description')
+        expect(listing_search.price).to eq('100')
+      end
+    end
   end
 end
 

@@ -3,12 +3,17 @@
 <form action="/listing/new" method='get'>
   <input type="submit" value="New listing">
 </form>
+
 <ul>
-<% @listing.each do |list| %>
-  <li><h4><%= list.name %></h4><br>
-    <%= list.description %><br>
-    £<%= list.price %>
-    <a href="#">Click to book</a>
-  </li>
-<% end %>
+  <% @listing.each do |list| %>
+    <a href="/listing/<%= list.id%>/booking" class="click_listing">
+      <div class="listing_wrapper">
+        <li>
+          <h4><%= list.name %></h4><br>
+            <%= list.description %><br>
+            £<%= list.price %>
+        </li>
+      </div>
+    </a>
+  <% end %>
 </ul>

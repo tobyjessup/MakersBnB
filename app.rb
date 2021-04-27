@@ -18,7 +18,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/signup' do
-    User.create(username: params[:username],email: params[:email], password: params[:password])
+    User.create(username: params[:username], email: params[:email], password: params[:password])
     redirect 'user/login'
   end
   
@@ -36,8 +36,9 @@ class MakersBnB < Sinatra::Base
     redirect '/listing'
   end
 
-  post '/listing/:id' do
-    erb
+  get '/listing/:id/booking' do
+    @listing = Listing.find(id: params[:id])
+    erb :"listing/booking"
   end
 
   run! if app_file == $PROGRAM_NAME
