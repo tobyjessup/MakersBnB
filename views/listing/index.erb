@@ -3,3 +3,12 @@
 <form action="/listing/new" method='get'>
   <input type="submit" value="New listing">
 </form>
+<ul>
+<% @listing.each do |list| %>
+  <li><h4><%= list.name %></h4><br>
+    <%= list.description %><br>
+    £<%= list.price %>
+    <a href="#">Click to book</a>
+  </li>
+<% end %>
+</ul>
