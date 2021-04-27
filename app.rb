@@ -1,25 +1,37 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'sinatra/flash'
 require './lib/listing'
 require './lib/user'
 require_relative 'database_connection_setup'
 
 class MakersBnB < Sinatra::Base
-  configure :development do
+   
+   configure :development do
     register Sinatra::Reloader
   end
+  enable :sessions
+  register Sinatra::Flash
+ 
 
   get '/' do
     erb :'user/signup'
   end
   
   get '/user/login' do
+    
     erb :'user/login'
+    
   end
 
   post '/signup' do
-    User.create(username: params[:username], email: params[:email], password: params[:password])
+    if params[:password] != params[:password_confirmation]
+      flash[:notice] = "Passwords do not match"
+      redirect '/'
+    else  
+    User.create(username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
     redirect 'user/login'
+    end
   end
 
   post '/login' do
