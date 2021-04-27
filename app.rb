@@ -36,5 +36,9 @@ class MakersBnB < Sinatra::Base
     redirect '/listing'
   end
 
+  post '/listing/:id' do
+    erb
+  end
+
   run! if app_file == $PROGRAM_NAME
 end
