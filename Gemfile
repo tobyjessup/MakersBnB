@@ -10,6 +10,7 @@ gem 'rack'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'launchy'
+gem 'bcrypt'
 
 group :development do
   gem 'shotgun'
