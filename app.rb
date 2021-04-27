@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/user'
+require_relative 'database_connection_setup'
 
 class MakersBnB < Sinatra::Base
   configure :development do
@@ -8,17 +9,19 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/' do
-    erb :'/signup'
+    erb :'user/signup'
   end
 
   post '/signup' do
     User.create(username: params[:username],email: params[:email], password: params[:password])
-    redirect '/login'
+    redirect 'user/login'
   end
 
-  get '/login' do
-    erb :'/login'
+  get '/user/login' do
+    erb :'user/login'
   end
+
+  
 
   run! if app_file == $PROGRAM_NAME
 

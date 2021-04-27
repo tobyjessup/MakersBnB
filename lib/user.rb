@@ -1,5 +1,6 @@
 
-require 'database_connection'
+require_relative 'database_connection'
+require 'pg'
 
 
 class User
