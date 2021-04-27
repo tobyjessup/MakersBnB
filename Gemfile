@@ -9,6 +9,7 @@ gem 'puma'
 gem 'rack'
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem 'bcrypt'
 
 group :development do
   gem 'shotgun'
