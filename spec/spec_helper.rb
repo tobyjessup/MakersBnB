@@ -1,4 +1,4 @@
-# ENV['ENVIRONMENT'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
@@ -9,6 +9,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'simplecov'
 require 'simplecov-console'
+require_relative './setup_test_database'
 
 Capybara.app = MakersBnB
 
@@ -35,6 +36,7 @@ SimpleCov.start
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  config.before(:each) { setup_test_database }
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

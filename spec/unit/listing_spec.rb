@@ -1,5 +1,4 @@
 require 'listing'
-require 'pg'
 
 describe Listing do
   context('#create') do 
