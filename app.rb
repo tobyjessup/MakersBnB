@@ -37,6 +37,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/listing/:id/booking' do
+
     @listing = Listing.find(id: params[:id])
     erb :"listing/booking"
   end
