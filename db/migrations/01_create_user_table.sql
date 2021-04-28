@@ -1,2 +1,1 @@
 CREATE TABLE users (id SERIAL PRIMARY KEY, username VARCHAR(30), email VARCHAR(60), password VARCHAR(100));
-ALTER TABLE listing ADD CONSTRAINT user_id FOREIGN KEY (user_id )REFERENCES users (id);
