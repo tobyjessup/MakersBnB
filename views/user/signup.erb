@@ -1,12 +1,32 @@
-<h1> Feel at home, anywhere </h1>
-<h2>Sign up to MakersBnB </h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="<%= url("style.css") %>" type="text/css">
+  <title>Document</title>
+</head>
+<body>
+  <h1> Feel at home, anywhere</h1>
+  <div id="login-box">
+  <div class="left">
+    <h1>Sign up to MakersBnB</h1>
+    
+    <form action="/signup" method ='post'>
+    <input type="text" name="username" placeholder="Username" />
+    <input type="text" name="email" placeholder="E-mail" />
+    <input type="password" name="password" placeholder="Password" />
+    <input type="password" name="password_confirmation" placeholder="Retype password" />
+    <input type="submit" name="signup_submit" value="Sign up" />
+     </form>
+  </div>
+  
+</body>
+<div class="left">
+  <h2><%= flash[:notice] %></h2>
+ </div>
+</html>
 
-
-<form action="/signup" method ='post'>
-      <input type="username" name="username" placeholder="Enter Username" />
-      <input type="email" name="email" placeholder="Enter Email" />
-      <input type="password" name='password' placeholder="Enter Password" />
-      <input type="password" name="password confirmation" placeholder="Re enter your password" />
-      <input type='submit' value="Sign up">
-    </form>
+  
 
