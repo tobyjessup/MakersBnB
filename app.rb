@@ -42,6 +42,11 @@ class MakersBnB < Sinatra::Base
     erb :"/listing/index"
   end
 
+  #delete after - just as I don't have the right routing
+  get '/listing/all' do 
+    erb :"/listing/booking"
+  end
+
   get '/listing/new' do
     erb :"listing/new"
   end
