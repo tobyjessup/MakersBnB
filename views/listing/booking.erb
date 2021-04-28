@@ -12,6 +12,7 @@
     <h4><%= @listing.name %></h4><br>
     <p><%= @listing.description %></p><br>
     <p>£<%= @listing.price %></p>
+
     <form action="/listing/<% @listing.id %>" method="get">
       <input type="submit" value="Request to book">
     </form>
