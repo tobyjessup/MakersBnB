@@ -39,7 +39,8 @@ class MakersBnB < Sinatra::Base
   end
   
   get '/listing' do
-    erb :"/listing/index"
+    @listing = Listing.all
+    erb :"listing/index"
   end
 
   get '/listing/new' do
@@ -47,8 +48,14 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/listing/new' do
-    # @listing = Listing.all
+    listing = Listing.create(name: params[:name], description: params[:description], price: params[:price])
     redirect '/listing'
+  end
+
+  get '/listing/:id/booking' do
+
+    @listing = Listing.find(id: params[:id])
+    erb :"listing/booking"
   end
 
   run! if app_file == $PROGRAM_NAME

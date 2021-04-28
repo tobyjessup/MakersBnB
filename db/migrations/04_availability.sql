@@ -1,0 +1,2 @@
+CREATE TABLE availabilty (id SERIAL PRIMARY KEY, FOREIGN KEY (space_to_rent_id) REFERENCES listing (id), date VARCHAR(60));
+ALTER TABLE availabilty ADD FOREIGN KEY (space_to_rent_id) REFERENCES listing (space_to_rent_id);
