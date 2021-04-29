@@ -12,10 +12,15 @@ class MakersBnB < Sinatra::Base
   end
   enable :sessions
   register Sinatra::Flash
+
+  before do
+   # @listings = Listing.all
+    @user = session[:user]
+  end
  
 
   get '/' do
-    @user = User.find(id: session[:user_id])
+    #@user = User.find(id: session[:user_id])
     erb :'user/signup'
   end
   
@@ -26,22 +31,41 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/signup' do
-    if params[:password] != params[:password_confirmation]
-      flash[:notice] = "Passwords do not match"
-      redirect '/'
-    else  
     user = User.create(username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-   # session[:username] = user.username
-    redirect 'user/login'
+    case user
+    when 1
+      flash[:username_exists_warning] = 'Username in use'
+    when 2
+      flash[:email_warning] = 'Email address already registered'
+    when 3
+      flash[:password_match] = 'The passwords entered do not match'
+    else
+      session[:user] = user
+      redirect('/listing')
     end
+    redirect('/')
   end
-
+    
+  
   post '/login' do
     user = User.authenticate(username: params[:username], password: params[:password])
-    session[:user_id] = user.id
-   redirect '/listing'
+    case user
+    when 1
+      flash[:username_warning] = 'Please check your username'
+    when 2
+      flash[:password_warning] = 'Please check your password'
+    else
+      session[:user] = user
+      redirect('/listing')
+    end
+    redirect('/user/login')
   end
+
+  post '/logout' do
+    session.clear
+    redirect('/')
+  end
+  
   
   get '/listing' do
     @listing = Listing.all
