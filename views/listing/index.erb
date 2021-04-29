@@ -1,24 +1,56 @@
-<% if @user %>
-  <h1>Welcome, <%= @user.username %></h1>
-<% end %>
-
-<h3>Book a space</h3>
-
-<form action="/listing/new" method='get'>
-  <input type="submit" value="New listing">
-</form>
-
-<ul>
-  <% @listing.each do |list| %>
-    <a href="/listing/<%= list.id%>/booking" class="click_listing">
-      <div class="listing_wrapper">
-        <li>
-          <h4><%= list.name %></h4><br>
-            <%= list.description %><br>
-            £<%= list.price %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="<%= url("style.css") %>" type="text/css">
+  <title>Book A Space | MakersBnB</title>
+</head>
+  <body>
+    <nav class="navbar navbar-light" style="background-color: rgba(255, 255, 255, 0.3);">
+      <a class="navbar-brand logo" href="../" style="color: white">MakersBnB</a>
+      <ul class="navbar-nav ml-auto">
+        <li class="navbar-item">
+          <a class="navbar-link nav-right" href="#">About</a> 
+          <a class="navbar-link nav-right" href="../user/login">Login</a>
         </li>
-   
-      </div>
-    </a>
-  <% end %>
-</ul>
+      </ul>
+    </nav>
+  <div id="wrapper" class="container-fluid">
+    <div class="row justify-content-center">
+      <% if @user %>
+        <div class="p-1"><h1>Welcome, <%= @user.username %></h1></div>
+      <% end %>
+        </div>
+        <div class="row justify-content-center">
+          <div class="p-5"><h2>Book a space</h2></div>
+        </div>
+        <div class="form-group">
+          <form action="/listing/new" method='get'>
+          <input type="submit" value="New listing" class="btn btn-primary mx-auto">
+          </form>
+        </div>
+        <div class="row justify-content-center">
+          <h3 class="pt-5">The Properties</h3>
+        </div>
+        <div class="row justify-content-center">
+          <ul>
+            <% @listing.each do |list| %>
+            <a href="/listing/<%= list.id%>/booking" class="click_listing">
+              <div class="listing_wrapper d-flex justify-content-start pb-5 pl-3 pr-3">
+                <li>
+                  <a href="/listing/<%= list.id%>/booking" class="click_listing">
+                    <h4><%= list.name %></h4><br>
+                  </a>
+                  <p><%= list.description %></p><br>
+                  <p>£<%= list.price %> - Per Night</p>
+                  <% end %>
+                </li>
+              </div>
+            </ul>
+        </div>
+    </div>
+  </body>
+</html>
