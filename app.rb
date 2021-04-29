@@ -3,7 +3,6 @@ require 'sinatra/reloader'
 require 'sinatra/flash'
 require './lib/listing'
 require './lib/user'
-require './lib/booking'
 require_relative 'database_connection_setup'
 
 class MakersBnB < Sinatra::Base
@@ -26,7 +25,9 @@ class MakersBnB < Sinatra::Base
   end
   
   get '/user/login' do
+    
     erb :'user/login'
+    
   end
 
   post '/signup' do
@@ -87,12 +88,6 @@ class MakersBnB < Sinatra::Base
 
   get '/about-us' do 
     erb :"/about-us"
-  end
-
-  post '/listing/trip-date' do 
-    p params
-    booking = Booking.create(date: params[:tripdate], name: params[:name], name: params[:asda])
-    redirect '/listing'
   end
   
   post '/booking' do
