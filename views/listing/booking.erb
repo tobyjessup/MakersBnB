@@ -24,7 +24,7 @@
       <p><%= @listing.description %></p><br>
       <p>£<%= @listing.price %></p>
     </div>
-    <form action="/listing/<% @listing.id %>" method="get">
+    <form action="/booking" method="post">
       <input type="submit"  class="btn btn-primary mx-auto" value="Request to book">
     </form>
   </div>
