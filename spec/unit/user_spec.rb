@@ -19,6 +19,17 @@ describe '.create' do
 
     User.create(username: 'test', email: 'test@example.com', password: 'password123', password_confirmation: 'password123')
   end
+  it 'when the two passwords that the user has entered are the same a user is created' do
+    new_user = User.create(username: 'test', email: 'test@example.com', password: 'password123', password_confirmation: 'password123')
+  
+    expect(new_user).to be_a(User)
+  end
+  
+  it 'when the two passwords that the user enters are different it returns a 3' do
+    new_user = User.create(username: 'test', email: 'test@example.com', password: 'password12', password_confirmation: 'password123')
+  
+    expect(new_user).to eq(3)
+  end
 end
 
 describe '.find' do
@@ -36,4 +47,17 @@ describe '.find' do
     expect(User.find(id: nil)).to eq nil
   end
 end
+
+describe 'autentication' do
+  it 'allows existing user to sign in' do
+    new_user = User.create(username: 'test', email: 'test@example.com', password: 'password123', password_confirmation: 'password123')
+    signed_in_user = User.authenticate(username: 'test', password: 'password123')
+
+    expect(signed_in_user.id).to eq new_user.id
+  end
+end
+
+
+
+
 

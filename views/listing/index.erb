@@ -1,8 +1,8 @@
-<% if @user %>
-  <h1>Welcome, <%= @user.username %></h1>
-<% end %>
 
 <h3>Book a space</h3>
+<% if @user %>
+  Welcome, <%= @user.username %>
+<% end %>
 
 <form action="/listing/new" method='get'>
   <input type="submit" value="New listing">
@@ -22,3 +22,7 @@
     </a>
   <% end %>
 </ul>
+
+<form action='/logout' method='post'>
+      <input type='submit' value='Log out'>
+    </form>
