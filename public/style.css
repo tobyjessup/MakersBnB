@@ -34,14 +34,26 @@ h3 {
   color: black;
 }
 
+.create_listing{
+  color: black;
+  margin-bottom: 1em;
+}
+
+
 /* ---------------- Nav bar ----------------*/
+
+.change-my-color-size {
+  filter: invert(100%);
+  max-width: 40px;
+  margin: 1.5em;
+}
 
 input[type="text"], 
 input[type="password"],
 input[type="submit"]{
   display: block;
   box-sizing: border-box;
-  padding: 4px;
+  padding: 4px 15px;
 }
 
 .nav-right{
@@ -58,16 +70,90 @@ input[type="submit"]{
 
 #wrapper{
   background-color: white;
-  padding-bottom: 6em;
+  padding-bottom: 3em;
+  border-radius: 30px;
+  margin-top: 5em;
+  max-width: 500px;
+}
+
+#wrapper, #booking {
+  max-width: 700px;
 }
   
 .listing_wrapper{
   max-width: 600px;
-  margin-top: 2em;
-  display: block;
+  margin: 2em 2em 0 0;
+  background-color: rgba(119, 77, 77, 0.1);
+  border-radius: 15px;
 }
 
 ul, a{
   list-style-type: none;
 }
+/* ---------------- About Us ----------------*/
 
+.about-us-title{
+  color: white;
+}
+
+/* ---------------- Animations ----------------*/
+
+.fade-in {
+  animation: fadeIn ease 3s;
+  -webkit-animation: fadeIn ease 3s;
+  -moz-animation: fadeIn ease 3s;
+  -o-animation: fadeIn ease 3s;
+  -ms-animation: fadeIn ease 3s;
+}
+
+.fade-in-pt2{
+    animation: fadeIn ease 4s;
+    -webkit-animation: fadeIn ease 4s;
+    -moz-animation: fadeIn ease 4s;
+    -o-animation: fadeIn ease 4s;
+    -ms-animation: fadeIn ease 4s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+}

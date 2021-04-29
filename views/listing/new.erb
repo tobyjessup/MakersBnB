@@ -10,22 +10,36 @@
 </head>
 <body>
   <nav class="navbar navbar-light" style="background-color: rgba(255, 255, 255, 0.3);">
+    <img src="../images/bed-and-breakfast.svg" class="change-my-color-size">
     <a class="navbar-brand logo" href="../" style="color: white">MakersBnB</a>
     <ul class="navbar-nav ml-auto">
       <li class="navbar-item">
-        <a class="navbar-link nav-right" href="#">About</a> 
+        <a class="navbar-link nav-right" href="../about-us">About</a> 
         <a class="navbar-link nav-right" href="../user/login">Login</a>
       </li>
     </ul>
   </nav>
 <body>
-  <h2>Create a new listing</h2>
-
+<div id="wrapper" class="container">
+  <div class="row justify-content-center">
+  <h2 class="create_listing pt-5">Create a new listing</h2>
+  </div>
+  <div class="row justify-content-center">
+  <form>
     <form action="/listing/new" method="post">
-      <input type="text" name="name" placeholder="title" />
-      <input type="text" name="description" placeholder="Description of your place" />
-      <input type="number" name="price" placeholder="price" />
-      <input type="submit" value="Submit">
+      <div class="form-group">
+      <input type="text" name="name" placeholder="Title"  class="form-control" />
+      </div>
+      <div class="form-group">
+      <input type="text" name="description" class="form-control" placeholder="Description of your place" />
+      </div>
+      <div class="form-group">
+      <input type="number" name="price" class="form-control" placeholder="Price" />
+      </div>
+      <input type="submit" class="btn btn-primary mx-auto mt-4" value="Submit">
     </form>
+    </div>
+  </div>
+  </div>
 </body>
 </html>

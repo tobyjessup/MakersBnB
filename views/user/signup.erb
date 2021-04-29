@@ -11,10 +11,11 @@
 <body>
 
   <nav class="navbar navbar-light" style="background-color: rgba(255, 255, 255, 0.3);">
+    <img src="../images/bed-and-breakfast.svg" class="change-my-color-size">
     <a class="navbar-brand logo" href="#" style="color: white">MakersBnB</a>
     <ul class="navbar-nav ml-auto">
       <li class="navbar-item">
-        <a class="navbar-link nav-right" href="#">About</a> 
+        <a class="navbar-link nav-right" href="../about-us">About</a> 
         <a class="navbar-link nav-right" href="./user/login">Login</a>
       </li>
     </ul>
@@ -22,10 +23,10 @@
 <%# <div class="bg-image"></div> %>
   <div class="container d-flex flex-column justify-content-center">
     <div class="row justify-content-center">
-      <div class="p-2"><h1> Feel at home, anywhere...</h1></div>
+      <div class="p-2"><h1 class="fade-in"> Feel at home, anywhere...</h1></div>
     </div>
     <div class="row justify-content-center">
-      <div class="p-2 signup"><h2>Sign up to MakersBnB</h2></div>
+      <div class="p-2 signup"><h2 class="fade-in-pt2">Sign up to MakersBnB</h2></div>
     </div>
     <div class="row justify-content-center">
       <form action="/signup" method ='post'>
@@ -35,7 +36,7 @@
               <input type="text" name="username" class="form-control" placeholder="Username" />
             </div>
             <div class="form-group">
-              <input type="text" name="email"  class="form-control" placeholder="E-mail" />
+              <input type="email" name="email"  class="form-control" placeholder="E-mail" />
             </div>
             <div class="form-group">
               <input type="password" name="password"  class="form-control" placeholder="Password" />
