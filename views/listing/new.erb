@@ -19,13 +19,26 @@
     </ul>
   </nav>
 <body>
-  <h2>Create a new listing</h2>
-
+<div id="wrapper" class="container">
+  <div class="row justify-content-center">
+  <h2 class="create_listing pt-5">Create a new listing</h2>
+  </div>
+  <div class="row justify-content-center">
+  <form>
     <form action="/listing/new" method="post">
-      <input type="text" name="name" placeholder="title" />
-      <input type="text" name="description" placeholder="Description of your place" />
-      <input type="number" name="price" placeholder="price" />
-      <input type="submit" value="Submit">
+      <div class="form-group">
+      <input type="text" name="name" placeholder="Title"  class="form-control" />
+      </div>
+      <div class="form-group">
+      <input type="text" name="description" class="form-control" placeholder="Description of your place" />
+      </div>
+      <div class="form-group">
+      <input type="number" name="price" class="form-control" placeholder="Price" />
+      </div>
+      <input type="submit" class="btn btn-primary mx-auto mt-4" value="Submit">
     </form>
+    </div>
+  </div>
+  </div>
 </body>
 </html>
