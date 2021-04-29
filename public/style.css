@@ -39,7 +39,14 @@ h3 {
   margin-bottom: 1em;
 }
 
+
 /* ---------------- Nav bar ----------------*/
+
+.change-my-color-size {
+  filter: invert(100%);
+  max-width: 40px;
+  margin: 1.5em;
+}
 
 input[type="text"], 
 input[type="password"],
@@ -83,6 +90,13 @@ input[type="submit"]{
 ul, a{
   list-style-type: none;
 }
+/* ---------------- About Us ----------------*/
+
+.about-us-title{
+  color: white;
+}
+
+/* ---------------- Animations ----------------*/
 
 .fade-in {
   animation: fadeIn ease 3s;

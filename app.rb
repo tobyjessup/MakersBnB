@@ -66,7 +66,6 @@ class MakersBnB < Sinatra::Base
     redirect('/')
   end
   
-  
   get '/listing' do
     @listing = Listing.all
     erb :"listing/index"
@@ -82,9 +81,12 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/listing/:id/booking' do
-
     @listing = Listing.find(id: params[:id])
     erb :"listing/booking"
+  end
+
+  get '/about-us' do 
+    erb :"/about-us"
   end
 
   run! if app_file == $PROGRAM_NAME
