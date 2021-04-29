@@ -14,7 +14,7 @@ class MakersBnB < Sinatra::Base
   register Sinatra::Flash
 
   before do
-   # @listings = Listing.all
+    @listing = Listing.all
     @user = session[:user]
   end
  
@@ -76,7 +76,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/listing/new' do
-    listing = Listing.create(name: params[:name], description: params[:description], price: params[:price])
+    listing = Listing.create(name: params[:name], description: params[:description], price: params[:price], user_id: @user.user_id)
     redirect '/listing'
   end
 
@@ -85,8 +85,13 @@ class MakersBnB < Sinatra::Base
     erb :"listing/booking"
   end
 
+
   get '/about-us' do 
     erb :"/about-us"
+  end
+  
+  post '/booking' do
+    redirect '/listing'
   end
 
   run! if app_file == $PROGRAM_NAME
