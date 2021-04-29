@@ -47,7 +47,6 @@ class MakersBnB < Sinatra::Base
   end
     
   
-
   post '/login' do
     user = User.authenticate(username: params[:username], password: params[:password])
     case user
@@ -72,9 +71,6 @@ class MakersBnB < Sinatra::Base
     @listing = Listing.all
     erb :"listing/index"
   end
-
-  
-  
 
   get '/listing/new' do
     erb :"listing/new"

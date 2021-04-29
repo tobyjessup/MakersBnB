@@ -19,7 +19,19 @@ h1{
 }
 
 h1, h2{
-  color: rgb(255, 255, 255);
+  color: white;
+}
+
+.welcome{
+  color: black;
+}
+
+h3 {
+  margin-bottom: 0.5em;
+}
+
+.welcome{
+  color: black;
 }
 
 /* ---------------- Nav bar ----------------*/
@@ -42,5 +54,20 @@ input[type="submit"]{
 
 .signup{
   margin-bottom: 2em;
+}
+
+#wrapper{
+  background-color: white;
+  padding-bottom: 6em;
+}
+  
+.listing_wrapper{
+  max-width: 600px;
+  margin-top: 2em;
+  display: block;
+}
+
+ul, a{
+  list-style-type: none;
 }
 
