@@ -35,6 +35,11 @@
     <form action="/booking" method="post">
       <input type="submit"  class="btn btn-primary mx-auto" value="Request to book">
     </form>
+      <div class="row justify-content-center">
+        <p class="warning fade-in">
+          <%= flash[:booking_warning] %>
+        </p>
+      </div>
     </div>
 </body>
 </html>
