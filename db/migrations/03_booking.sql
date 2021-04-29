@@ -1,5 +1,1 @@
-CREATE TABLE booking (id SERIAL PRIMARY KEY, date VARCHAR(60), availabilty BOOLEAN);
-ALTER TABLE booking ADD COLUMN user_id INT;
-ALTER TABLE booking ADD COLUMN space_id INT;
-ALTER TABLE booking ADD CONSTRAINT user_id FOREIGN KEY (user_id )REFERENCES users (id);
-ALTER TABLE booking ADD CONSTRAINT space_id FOREIGN KEY (space_id )REFERENCES listing (id);
+CREATE TABLE booking (booking_id SERIAL PRIMARY KEY, listing_id INTEGER, FOREIGN KEY(listing_id) REFERENCES listing (listing_id), user_id INTEGER, FOREIGN KEY(user_id) REFERENCES users (user_id), date DATE);
