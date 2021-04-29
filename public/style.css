@@ -19,11 +19,19 @@ h1{
 }
 
 h1, h2{
+  color: white;
+}
+
+.welcome{
   color: black;
 }
 
 h3 {
   margin-bottom: 0.5em;
+}
+
+.welcome{
+  color: black;
 }
 
 /* ---------------- Nav bar ----------------*/
@@ -50,12 +58,13 @@ input[type="submit"]{
 
 #wrapper{
   background-color: white;
-  padding-bottom: 10em;
+  padding-bottom: 8em;
 }
   
 .listing_wrapper{
   max-width: 600px;
   margin-top: 2em;
+  display: block;
 }
 
 ul, a{
