@@ -9,30 +9,30 @@ class User
     return 3 if password != password_confirmation
     encrypted_password = BCrypt::Password.create(password)
     result = DatabaseConnection.query("INSERT INTO users (username, email, password) VALUES('#{username}', '#{email}', '#{encrypted_password}') 
-      RETURNING id, username , email;"
+      RETURNING user_id, username , email;"
       )
-    User.new(id: result[0]['id'], username: result[0]['username'], email: result[0]['email'])
+    User.new(user_id: result[0]['user_id'], username: result[0]['username'], email: result[0]['email'])
   end
 
-  attr_reader :username, :id, :email
+  attr_reader :username, :user_id, :email
 
-  def initialize(username:, id:, email:)
-    @id = id
+  def initialize(user_id:, username:, email:)
+    @user_id = user_id
     @username = username
     @email = email
   end
 
   def self.find(id:)
-    return nil unless id
-    result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
-    User.new(id: result[0]['id'], username: result[0]['username'], email: result[0]['email'])
+    return  unless id
+    result = DatabaseConnection.query("SELECT * FROM users WHERE user_id = '#{id}'")
+    User.new(user_id: result[0]['user_id'], username: result[0]['username'], email: result[0]['email'])
   end
 
   def self.authenticate(username:, password:) 
     result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}'")
     return 1 unless result.any?
     return 2 unless BCrypt::Password.new(result[0]['password']) == password
-    User.new(id: result[0]['id'],username: result[0]['username'],email: result[0]['email']) 
+    User.new(user_id: result[0]['user_id'],username: result[0]['username'],email: result[0]['email']) 
   end
 
 
