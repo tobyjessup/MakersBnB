@@ -25,10 +25,6 @@
       <div class="row justify-content-center">
         <div class="p-2"><h1>Log in to MakersBnB</h1></div>
       </div>
-      <h2>
-  <%= flash[:username_warning] %>
-<%= flash[:password_warning] %>
-</h2>
         <div class="row justify-content-center">
           <form action="/login" method ='post'>
             <div class="p-2">
@@ -42,6 +38,16 @@
               <input type="submit" name="login_submit" class="btn btn-primary mx-auto" value="Log in" />
             </form>
           </div>
+        </div>
+      <div class="row justify-content-center">
+        <p class="warning fade-in">
+          <%= flash[:username_warning] %>
+        </p>
+        </div>
+        <div class="row justify-content-center">
+          <p class="warning fade-in">
+            <%= flash[:password_warning] %>
+          </p>
         </div>
       </div>
     </div>
