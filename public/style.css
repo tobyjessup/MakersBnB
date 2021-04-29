@@ -4,7 +4,7 @@
 
 body {
   font-family: 'ABeeZee', sans-serif;
-  background-image: url('./images/background_image2.jpeg');
+  background-image: url('./images/background_image2-web.jpeg');
   height: 100vh;
   background-repeat: no-repeat;
   background-position: center center;
@@ -94,7 +94,20 @@ ul, a{
 
 .about-us-title{
   color: white;
+  margin-top: 2em;
 }
+
+.about-img{
+  width: 400px;
+}
+/* 
+#about-wrapper{
+  background-color: white;
+  padding-bottom: 3em;
+  border-radius: 30px;
+  max-width: 700px;
+  margin-top: 5em;
+} */
 
 /* ---------------- Animations ----------------*/
 
@@ -156,4 +169,5 @@ ul, a{
   }
   100% {
     opacity:1;
+}
 }

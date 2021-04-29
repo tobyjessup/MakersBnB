@@ -85,6 +85,10 @@ class MakersBnB < Sinatra::Base
     erb :"listing/booking"
   end
 
+  post '/listing/trip-date' do 
+    booking = Listing.book(date: params[:tripdate], listingid:, @user.id)
+  end
+
   get '/about-us' do 
     erb :"/about-us"
   end
