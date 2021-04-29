@@ -7,7 +7,7 @@ feature 'registration' do
     fill_in('password_confirmation', with: 'password123')
     click_button('Sign up')
     
-    expect(page).to have_content "Log in to MakersBnB"
+    expect(page).to have_content "Feel at home, anywhere"
     
   end
   scenario 'password has to match' do

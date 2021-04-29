@@ -5,7 +5,7 @@ describe Listing do
     it('Allows the user to create a listing') do 
       user = User.create(username: 'test', email: 'test@example.com', password: 'password123', password_confirmation: 'password123')
       listing = Listing.create(name: 'name', description: 'description', price: 100, user_id: '1')
-      persisted_data = persisted_data(table: 'listing', id: listing.listing_id)
+      persisted_data = persisted_data_listing(table: 'listing', id: listing.listing_id)
       expect(listing).to be_a Listing
       expect(listing.listing_id).to eq(persisted_data.first['listing_id'])
     end
@@ -15,7 +15,7 @@ describe Listing do
         user = User.create(username: 'test', email: 'test@example.com', password: 'password123', password_confirmation: 'password123')
         listing = Listing.create(name: 'name', description: 'description', price: 100, user_id: '1')
         Listing.create(name: 'second', description: 'text', price: 200, user_id:'1')
-        persisted_data = persisted_data(table: 'listing', id: listing.listing_id)
+        persisted_data = persisted_data_listing(table: 'listing', id: listing.listing_id)
 
         list = Listing.all
         expect(list.first).to be_a Listing

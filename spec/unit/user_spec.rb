@@ -5,7 +5,7 @@ describe '.create' do
   it 'creates a new user' do
     user = User.create(username: 'test', email: 'test@example.com', password: 'password123', password_confirmation: 'password123')
 
-    persisted_data = persisted_data(table: :users, id: user.user_id)
+    persisted_data = persisted_data_user(table: :users, id: user.user_id)
 
     expect(user).to be_a User
     expect(user.user_id).to eq persisted_data.first['user_id']

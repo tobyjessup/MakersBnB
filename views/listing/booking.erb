@@ -26,12 +26,11 @@
       <p>£<%= @listing.price %> - Per Night</p>
     </div>
     <div class="container ">
-    <form action="/listing/<% @listing.id %>" method="get">
+    <form action="/listing/<% @listing.listing_id %>" method="get">
     <label for="trip-date" class="mt-3">Select A Date:</label>
     <input class="form-control" type="date" id="start" name="trip-date"
        value="2021-04-29"
        min="2021-04-29" max="2021-12-31">
-      <input type="submit"  class="btn btn-primary mx-auto mt-5" value="Request to book">
     <form action="/booking" method="post">
       <input type="submit"  class="btn btn-primary mx-auto" value="Request to book">
     </form>

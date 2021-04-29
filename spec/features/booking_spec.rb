@@ -6,7 +6,7 @@ feature 'Booking' do
     click_on(class: 'click_listing')
     expect(page).to have_content('myhome')
     expect(page).to have_content('bythesea')
-    expect(page).to have_content('1000')
+    expect(page).to have_content('50')
     click_button('Request to book')
   end
 end
