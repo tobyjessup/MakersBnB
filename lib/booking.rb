@@ -7,6 +7,7 @@ attr_reader :booking_id, :date, :listing_id, :user_id
     @listing_id = listing_id
     @user_id = user_id
   end
+  
   def self.create(date:, listing_id:, user_id:)
     return 1 if date_exist?(date) ==true
     result = DatabaseConnection.query("INSERT INTO booking (date, user_id, listing_id) VALUES('#{date}', '#{user_id}', '#{listing_id}') RETURNING date, user_id, listing_id;")
