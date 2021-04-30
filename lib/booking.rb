@@ -2,8 +2,7 @@ require_relative 'database_connection'
 
 class Booking
 attr_reader :booking_id, :date, :listing_id, :user_id
-  def initialize(booking_id:, date:, listing_id:, user_id:)
-    @booking_id = booking_id
+  def initialize(date:, listing_id:, user_id:)
     @date = date
     @listing_id = listing_id
     @user_id = user_id

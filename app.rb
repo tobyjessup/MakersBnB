@@ -87,6 +87,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/listing/:id/booking' do
+    session[:id] = params[:id]
     @listing = Listing.find(id: params[:id])
     erb :"listing/booking"
   end
@@ -97,7 +98,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/listing/trip-date' do 
-    @listing = Listing.find(id: params[:id])
+    @listing = Listing.find(id: session[:id])
     booking = Booking.create(date: params[:trip_date], listing_id: @listing.listing_id, user_id: @user.user_id)
     redirect ('/listing')
   end
