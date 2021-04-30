@@ -11,12 +11,12 @@
 <body>
 <div class="parallax">
   <nav class="navbar navbar-light" style="background-color: rgba(255, 255, 255, 0.3);">
-    <img src="../images/bed-and-breakfast.svg" class="change-my-color-size">
-    <a class="navbar-brand logo" href="../" style="color: white">MakersBnB</a>
+    <img src="/images/bed-and-breakfast.svg" class="change-my-color-size">
+    <a class="navbar-brand logo" href="/listing" style="color: white">MakersBnB</a>
     <ul class="navbar-nav ml-auto">
       <li class="navbar-item">
-        <a class="navbar-link nav-right" href="../about-us">About</a> 
-        <a class="navbar-link nav-right" href="../user/login">Login</a>
+        <a class="navbar-link nav-right" href="/about-us">About</a> 
+        <a class="navbar-link nav-right" href="/user/login">Login</a>
       </li>
     </ul>
   </nav>
@@ -29,8 +29,7 @@
       <div class="container  text-center">
       <form action="/listing/trip-date" method="post">
       <label for="trip_date" class="mt-3 p-2">Select A Date:</label>
-      <input class="form-control" type="date" id="dt" name="trip_date"
-      # <input type="date" id="dt" />
+      <input class="form-control" type="date" id="dt" name="trip_date"> 
       <form action="/booking" method="post">
         <input type="submit"  class="btn btn-primary mx-auto submit-btn" value="Request to book">
         <span id="datetime"></span>
