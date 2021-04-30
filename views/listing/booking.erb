@@ -9,17 +9,17 @@
   <title>Listings | MakersBnB</title>
 </head>
 <body>
-  <div class="parallax">
-    <nav class="navbar navbar-light" style="background-color: rgba(255, 255, 255, 0.3);">
-    <img src="../images/bed-and-breakfast.svg"> 
-     <a class="navbar-brand logo" href="../" style="color: white">MakersBnB</a>
-      <ul class="navbar-nav ml-auto">
-        <li class="navbar-item">
-          <a class="navbar-link nav-right" href="../about-us">About</a> 
-          <a class="navbar-link nav-right" href="../user/login">Login</a>
-        </li>
-      </ul>
-    </nav>
+<div class="parallax">
+  <nav class="navbar navbar-light" style="background-color: rgba(255, 255, 255, 0.3);">
+    <img src="../images/bed-and-breakfast.svg" class="change-my-color-size">
+    <a class="navbar-brand logo" href="../" style="color: white">MakersBnB</a>
+    <ul class="navbar-nav ml-auto">
+      <li class="navbar-item">
+        <a class="navbar-link nav-right" href="../about-us">About</a> 
+        <a class="navbar-link nav-right" href="../user/login">Login</a>
+      </li>
+    </ul>
+  </nav>
    <div id="wrapper" class="container-fluid p-5">
       <div class="d-flex flex-column justify-content-center">
         <h4 class="pt-5">Listing: <%= @listing.name %></h4><br>
