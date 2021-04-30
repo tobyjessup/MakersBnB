@@ -2,14 +2,20 @@
 
 @import url(https://fonts.googleapis.com/css?family=ABeeZee:400,300,500);
 
-body {
+body, html {
   font-family: 'ABeeZee', sans-serif;
+  height: 100%;
+}
+
+.parallax{
   background-image: url('./images/background_image2.jpeg');
-  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-color: #10c5e6 ;
+  height: 100%;
   background-repeat: no-repeat;
-  background-position: center center;
   background-size: cover;
-  background-color: #a89e9e;
+  overflow-x: hidden;
   /* filter: blur(2px);
   -webkit-filter: blur(2px); */
 }
@@ -81,10 +87,11 @@ input[type="submit"]{
 
 #wrapper{
   background-color: white;
-  padding-bottom: 3em;
+  padding-bottom: 5em;
   border-radius: 30px;
   margin-top: 5em;
   max-width: 500px;
+  margin-bottom: 5em;
 }
 
 #wrapper, #booking {
@@ -93,18 +100,47 @@ input[type="submit"]{
   
 .listing_wrapper{
   max-width: 600px;
+  min-width: 500px;
   margin: 2em 2em 0 0;
   background-color: rgba(119, 77, 77, 0.1);
   border-radius: 15px;
+  padding: 4em;
 }
 
 ul, a{
   list-style-type: none;
 }
+
+
+/* ---------------- Listing ----------------*/
+
+.price {
+  font-size: 0.9rem;
+}
+
+.submit-btn{
+  margin-top: 1.5em;
+}
+
+.date-selector{
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+
 /* ---------------- About Us ----------------*/
 
 .about-us-title{
   color: white;
+  margin-top: 2em;
+}
+
+.about-img{
+  max-width: 400px;
+}
+
+.about-bio{
+  padding: 5em;
 }
 
 /* ---------------- Animations ----------------*/
