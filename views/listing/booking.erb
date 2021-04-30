@@ -29,11 +29,10 @@
       <div class="container  text-center">
       <form action="/listing/<% @listing.listing_id %>" method="get">
       <label for="trip-date" class="mt-3 p-2">Select A Date:</label>
-      <input class="form-control date-selector" type="date" id="start" name="trip-date"
-        value="2021-04-30"
-        min="2021-04-30" max="2021-12-31">
+      <input type="date" id="dt" />
       <form action="/booking" method="post">
         <input type="submit"  class="btn btn-primary mx-auto submit-btn" value="Request to book">
+        <span id="datetime"></span>
       </form>
         <div class="row justify-content-center">
           <p class="warning fade-in">
@@ -43,5 +42,8 @@
     </div>
   </div>
 </body>
+<script>
+  document.getElementById('dt').min = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+  document.getElementById('dt').value = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+</script>
 </html>
-
