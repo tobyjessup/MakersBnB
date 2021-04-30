@@ -21,13 +21,13 @@ class MakersBnB < Sinatra::Base
  
 
   get '/' do
-    #@user = User.find(id: session[:user_id])
     erb :'user/signup'
   end
   
   get '/user/login' do
     erb :'user/login'
   end
+
 
   post '/signup' do
     user = User.create(username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
@@ -50,9 +50,9 @@ class MakersBnB < Sinatra::Base
     user = User.authenticate(username: params[:username], password: params[:password])
     case user
     when 1
-      flash[:username_warning] = 'Please check your username'
+      flash[:username_warning] = 'Please check your username/password'
     when 2
-      flash[:password_warning] = 'Please check your password'
+      flash[:password_warning] = 'Please check your username/password'
     else
       session[:user] = user
       redirect('/listing')
@@ -60,10 +60,11 @@ class MakersBnB < Sinatra::Base
     redirect('/user/login')
   end
 
-  post '/logout' do
+  get '/logout' do
     session.clear
     redirect('/')
   end
+  
   
   get '/listing' do
     @listing = Listing.all
@@ -76,7 +77,13 @@ class MakersBnB < Sinatra::Base
 
   post '/listing/new' do
     listing = Listing.create(name: params[:name], description: params[:description], price: params[:price], user_id: @user.user_id)
+    case listing
+    when 1
+      flash[:listing_name_warning] = 'Property name already existe'
+    else
     redirect '/listing'
+    end
+    redirect '/listing/new'
   end
 
   get '/listing/:id/booking' do

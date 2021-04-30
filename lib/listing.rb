@@ -26,6 +26,7 @@ class Listing
   end
 
   def self.create(name:, description:, price:, user_id:)
+    return 1 if name_exist?(name) == true
     result = DatabaseConnection.query("INSERT INTO listing (name, description, price, user_id) VALUES('#{name}', '#{description}', '#{price}', '#{user_id}') RETURNING listing_id, name, description, price, user_id;")
     Listing.new(listing_id: result[0]['listing_id'], name: result[0]['name'], description: result[0]['description'], price: result[0]['price'], user_id: result[0]['user_id'])
   end
@@ -33,5 +34,10 @@ class Listing
   def self.find(id:)
     result = DatabaseConnection.query("SELECT * FROM listing WHERE listing_id = '#{id}';")
     Listing.new(listing_id: result[0]['listing_id'], name: result[0]['name'], description: result[0]['description'], price: result[0]['price'], user_id: result[0]['user_id'])
+  end
+
+  def self.name_exist?(name)
+    db_search = DatabaseConnection.query("SELECT * FROM listing WHERE name = '#{name}';")
+    db_search.any?
   end
 end
