@@ -9,36 +9,39 @@
   <title>Listings | MakersBnB</title>
 </head>
 <body>
-  <nav class="navbar navbar-light" style="background-color: rgba(255, 255, 255, 0.3);">
-    <img src="../images/bed-and-breakfast.svg" class="change-my-color-size">
-    <a class="navbar-brand logo" href="../" style="color: white">MakersBnB</a>
-    <ul class="navbar-nav ml-auto">
-      <li class="navbar-item">
-        <a class="navbar-link nav-right" href="../about-us">About</a> 
-        <a class="navbar-link nav-right" href="../user/login">Login</a>
-      </li>
-    </ul>
-  </nav>
-  <div id="wrapper" class="r-flex justify-content-center">
-    <div class="container justify-content-center">
-      <h4 class="pt-5"><%= @listing.name %></h4><br>
-      <p><%= @listing.description %></p><br>
-      <p>£<%= @listing.price %> - Per Night</p>
-    </div>
-    <div class="container ">
-    <form action="/listing/<% @listing.listing_id %>" method="get">
-    <label for="trip-date" class="mt-3">Select A Date:</label>
-    <input class="form-control" type="date" id="start" name="trip-date"
-       value="2021-04-29"
-       min="2021-04-29" max="2021-12-31">
-    <form action="/booking" method="post">
-      <input type="submit"  class="btn btn-primary mx-auto" value="Request to book">
-    </form>
-      <div class="row justify-content-center">
-        <p class="warning fade-in">
-          <%= flash[:booking_warning] %>
-        </p>
+  <div class="parallax">
+    <nav class="navbar navbar-light" style="background-color: rgba(255, 255, 255, 0.3);">
+    <img src="../images/bed-and-breakfast.svg"> 
+     <a class="navbar-brand logo" href="../" style="color: white">MakersBnB</a>
+      <ul class="navbar-nav ml-auto">
+        <li class="navbar-item">
+          <a class="navbar-link nav-right" href="../about-us">About</a> 
+          <a class="navbar-link nav-right" href="../user/login">Login</a>
+        </li>
+      </ul>
+    </nav>
+   <div id="wrapper" class="container-fluid p-5">
+      <div class="d-flex flex-column justify-content-center">
+        <h4 class="pt-5">Listing: <%= @listing.name %></h4><br>
+        <p>Description:<br><%= @listing.description %></p><br>
+        <p>£<%= @listing.price %> - Per Night</p>
+      </div>
+      <div class="container  text-center">
+      <form action="/listing/<% @listing.listing_id %>" method="get">
+      <label for="trip-date" class="mt-3 p-2">Select A Date:</label>
+      <input class="form-control date-selector" type="date" id="start" name="trip-date"
+        value="2021-04-30"
+        min="2021-04-30" max="2021-12-31">
+      <form action="/booking" method="post">
+        <input type="submit"  class="btn btn-primary mx-auto submit-btn" value="Request to book">
+      </form>
+        <div class="row justify-content-center">
+          <p class="warning fade-in">
+            <%= flash[:booking_warning] %>
+          </p>
       </div>
     </div>
+  </div>
 </body>
 </html>
+
