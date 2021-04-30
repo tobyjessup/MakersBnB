@@ -81,7 +81,7 @@ class MakersBnB < Sinatra::Base
     when 1
       flash[:listing_name_warning] = 'Property name already existe'
     else
-    redirect '/listing'
+    redirect ("/listing")
     end
     redirect '/listing/new'
   end
@@ -97,17 +97,21 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/listing/trip-date' do 
-    p params
-    booking = Booking.create(date: params[:tripdate], name: params[:name], name: params[:asda])
-    redirect '/listing'
+    @listing = Listing.find(id: params[:id])
+    booking = Booking.create(date: params[:trip_date], listing_id: @listing.listing_id, user_id: @user.user_id)
+    redirect ('/listing')
   end
+
+  get '/listing/trip-date' do 
+    'hello'
+  end
+
   
-  post '/booking' do
-    redirect '/listing'
-  end
+  #post '/booking' do
+   # redirect '/listing'
+  #end
 
   run! if app_file == $PROGRAM_NAME
 end
 
 
-#fnjbfskjdsbkjfbdskjbnf
